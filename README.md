@@ -10,9 +10,8 @@
 | firstname      | string  | null:  false                  |
 | lastname_kana  | string  | null:  false                  |
 | firstname_kana | string  | null:  false                  |
-| bitrth_year    | integer | null:  false                  |
-| bitrth_mo      | integer | null:  false                  |
-| bitrth_day     | integer | null:  false                              |
+| bitrth_date    | date | null:  false                  |
+
 
 
 ### Association
