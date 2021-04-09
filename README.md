@@ -63,7 +63,7 @@
 |   municipality    |   string  |   null:  false    |
 |   block_number    |   string |   null:  false    |
 |   building_name   |   string   |     |
-|   phone_number    | integer   | null:  false    |
+|   phone_number    | string   | null:  false    |
 |   buy |references | null:false, foreign_key: true |
 
 
