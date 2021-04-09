@@ -36,6 +36,7 @@
 
 ### Association
 - belongs_to :user
+- has_one :buy
 
 
 
@@ -49,6 +50,7 @@
 ## Association
 - belongs_to :user
 - has_one :address
+
 
 
 
