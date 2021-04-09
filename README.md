@@ -59,7 +59,7 @@
 | Column         | Type       | Options               |
 | -------------- | ------- | ----------------------------- |
 |   postal_code | string   |  null:  false    |
-|   prefectures |   string  |   null:  false    |
+| area_id | integer     | null:  false                  |
 |   municipality    |   string  |   null:  false    |
 |   block_number    |   integer |   null:  false    |
 |   building_name   |   string   |  null:  false    |
