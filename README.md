@@ -1,24 +1,70 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+| Column         | Type    | Options                       |
+| -------------- | ------- | ----------------------------- |
+| nickname       | string  | null:  false                  |
+| email          | string  | null:  false ,   unique: true |
+| password       | string  | null:  false                  |
+| password_check | string  | null:  false                  |
+| lastname       | string  | null:  false                  |
+| firstname      | string  | null:  false                  |
+| lastname_kana  | string  | null:  false                  |
+| firstname_kana | string  | null:  false                  |
+| bitrth_year    | integer | null:  false                  |
+| bitrth_mo      | integer | null:  false                  |
+| bitrth_day     | integer | null:  false                              |
 
-Things you may want to cover:
 
-* Ruby version
+### Association
+- has_many :products
+- has_many :buys
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+## productsテーブル
+| Column         | Type       | Options                       |
+| -------------- | ------- | ----------------------------- |
+| product_name   | text       | null:  false                  |
+| product_text   | text       | null:  false                  |
+| price          | integer    | null:  false                  |
+| user    | references | null:false, foreign_key: true |
+| category       | integer    | null:  false                  |
+| condition      | string     | null:  false                  |
+| shipping_fee   | string     | null:  false                  |
+| consignor_area | string     | null:  false                  |
+| ship_day       | string     | null:  false                  |
 
-* Database initialization
 
-* How to run the test suite
+### Association
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+## buysテーブル 
+| Column         | Type       | Options               |
+| -------------- | ------- | ----------------------------- |
+|user          |references | null:false, foreign_key: true |
+|buy_product|  text   | null:  false     |
+
+
+## Association
+- belongs_to :user
+- has_one :address
+
+
+
+### addresses
+| Column         | Type       | Options               |
+| -------------- | ------- | ----------------------------- |
+|   postal_code | integer   |  null:  false    |
+|   prefectures |   string  |   null:  false    |
+|   municipality    |   string  |   null:  false    |
+|   block_number    |   integer |   null:  false    |
+|   building_name   |   string   |  null:  false    |
+|   phone_number    | integer   | null:  false    |
+|   buy |references | null:false, foreign_key: true |
+
+
+## Association
+belongs_to :buy
