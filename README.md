@@ -6,7 +6,6 @@
 | nickname       | string  | null:  false                  |
 | email          | string  | null:  false ,   unique: true |
 | password       | string  | null:  false                  |
-| password_check | string  | null:  false                  |
 | lastname       | string  | null:  false                  |
 | firstname      | string  | null:  false                  |
 | lastname_kana  | string  | null:  false                  |
