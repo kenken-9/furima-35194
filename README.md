@@ -27,11 +27,11 @@
 | product_text   | text       | null:  false                  |
 | price          | integer    | null:  false                  |
 | user    | references | null:false, foreign_key: true |
-| category       | integer    | null:  false                  |
-| condition      | string     | null:  false                  |
-| shipping_fee   | string     | null:  false                  |
-| consignor_area | string     | null:  false                  |
-| ship_day       | string     | null:  false                  |
+| category_id       | integer    | null:  false                  |
+| condition_id      | integer     | null:  false                  |
+| fee_id   | integer     | null:  false                  |
+| area_id | integer     | null:  false                  |
+| ship_id       | integer     | null:  false                  |
 
 
 ### Association
