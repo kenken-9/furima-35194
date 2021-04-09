@@ -61,7 +61,7 @@
 |   postal_code | string   |  null:  false    |
 | area_id | integer     | null:  false                  |
 |   municipality    |   string  |   null:  false    |
-|   block_number    |   integer |   null:  false    |
+|   block_number    |   string |   null:  false    |
 |   building_name   |   string   |  null:  false    |
 |   phone_number    | integer   | null:  false    |
 |   buy |references | null:false, foreign_key: true |
