@@ -23,7 +23,7 @@
 ## productsテーブル
 | Column         | Type       | Options                       |
 | -------------- | ------- | ----------------------------- |
-| product_name   | text       | null:  false                  |
+| product_name   | string       | null:  false                  |
 | product_text   | text       | null:  false                  |
 | price          | integer    | null:  false                  |
 | user    | references | null:false, foreign_key: true |
