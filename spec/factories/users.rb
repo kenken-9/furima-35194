@@ -7,7 +7,7 @@ FactoryBot.define do
         lastname {"ぜんかく"}
         firstname{"ぜんかく"}
         lastname_kana{"ゼンカクカナ"}
-        firstname{"ゼンカクカナ"}
+        firstname_kana{"ゼンカクカナ"}
         bitrth_date{"1930-01-01"}
     end
   end
