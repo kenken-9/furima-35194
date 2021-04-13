@@ -12,14 +12,13 @@ class Product < ApplicationRecord
         validates :image
         validates :name 
         validates :text
+        validates :price, inclusion: { in: 300..9999999,message: "Out of setting range"} , format: { with: /\A[0-9]+\z/ , message: "Half-width number" }
     end
 
-    validates :category_id, numericality: { other_than: 1 }
-    validates :condition_id, numericality: { other_than: 1 }
-    validates :fee_id, numericality: { other_than: 1 }
-    validates :area_id, numericality: { other_than: 1 }
-    validates :ship_id, numericality: { other_than: 1 }
-
-
+    validates :category_id, numericality:  {other_than: 1 ,message: "Select"}
+    validates :condition_id, numericality: {other_than: 1 ,message: "Select"}
+    validates :fee_id, numericality: {other_than: 1 ,message: "Select"}
+    validates :area_id, numericality: {other_than: 1 ,message: "Select"}
+    validates :ship_id, numericality: {other_than: 1 ,message: "Select"}
 
 end
