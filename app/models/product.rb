@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
     has_one_attached :image
 
+    belongs_to :user
+
     extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :category
     belongs_to :condition
@@ -12,7 +14,7 @@ class Product < ApplicationRecord
         validates :image
         validates :name 
         validates :text
-        validates :price, inclusion: { in: 300..9999999,message: "Out of setting range"} , format: { with: /\A[0-9]+\z/ , message: "Half-width number" }
+        validates :price, format: { with: /\A[0-9]+\z/ , message: "Half-width number" }, inclusion: { in: 300..9999999,message: "Out of setting range"} 
     end
 
     validates :category_id, numericality:  {other_than: 1 ,message: "Select"}
