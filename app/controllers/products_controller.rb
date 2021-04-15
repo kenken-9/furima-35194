@@ -18,6 +18,10 @@ class ProductsController < ApplicationController
     @products = Product.order("created_at DESC")
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+
   private
 
   def product_params
