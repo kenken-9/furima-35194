@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
+  before_action :set_product, only: [:edit, :show]
 
   def new
     @product = Product.new
@@ -19,10 +20,18 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    
+  end
+
+  def edit
+    
   end
 
   private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
   def product_params
     params.require(:product).permit(:image, :name, :text, :price, :category_id, :condition_id, :fee_id, :area_id, :ship_id).merge(user_id: current_user.id)
