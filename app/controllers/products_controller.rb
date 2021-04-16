@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :authenticate_user!, only: [:new, :edit, :update]
   before_action :set_product, only: [:edit, :show, :update]
+  before_action :set_path, only: [:edit, :update]
 
   def new
     @product = Product.new
@@ -23,9 +24,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    unless @product.user_id == current_user.id
-        redirect_to root_path
-    end
   end
 
   def update
@@ -41,6 +39,12 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
   end
+
+ def set_path
+    unless @product.user_id == current_user.id
+        redirect_to root_path
+    end
+ end
 
   def product_params
     params.require(:product).permit(:image, :name, :text, :price, :category_id, :condition_id, :fee_id, :area_id, :ship_id).merge(user_id: current_user.id)
