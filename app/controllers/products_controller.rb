@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
 
  def set_path
     unless @product.user_id == current_user.id
-        redirect_to root_path
+      redirect_to root_path
     end
  end
 
