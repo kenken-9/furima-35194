@@ -42,9 +42,9 @@ RSpec.describe BuyAddress, type: :model do
         end
 
         it "電話番号が空では登録できない" do
-          @buy_address.block_number = ""
+          @buy_address.phone_number = ""
           @buy_address.valid?
-          expect(@buy_address.errors.full_messages).to include("Block number can't be blank")
+          expect(@buy_address.errors.full_messages).to include("Phone number can't be blank")
         end
        
         it "都道府県をを選択しないと登録できない" do
