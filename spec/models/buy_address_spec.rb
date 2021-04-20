@@ -60,9 +60,9 @@ RSpec.describe BuyAddress, type: :model do
         end
 
         it "電話番号は11桁以内の数値のみ保存可能なこと" do
-          @buy_address.postal_code = "111111111111111111"
+          @buy_address.phone_number = "111111111111111111"
           @buy_address.valid?
-          expect(@buy_address.errors.full_messages).to include("Postal code code Input correctly")
+          expect(@buy_address.errors.full_messages).to include("Phone number Input only number")
         end
 
         it "tokenが空では送信できない" do
