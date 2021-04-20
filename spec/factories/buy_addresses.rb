@@ -7,6 +7,5 @@ FactoryBot.define do
     building_name{ "建物名"}
     phone_number{"11111111111"}
     token {"tok_abcdefghijk00000000000000000"}
-    price {99999}
   end
 end
