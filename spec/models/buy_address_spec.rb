@@ -3,7 +3,12 @@ require 'rails_helper'
 RSpec.describe BuyAddress, type: :model do
   describe "配送先入力情報保存" do
     before do
-      @buy_address = FactoryBot.build(:buy_address)
+      user = FactoryBot.create(:user)
+      product = FactoryBot.create(:product)
+      @buy_address = FactoryBot.build(:buy_address, user_id: user.id , product_id: product.id)
+      # サーバーに負荷がかかっている為記載
+       sleep 0.1 
+       # / サーバーに負荷がかかっている為記載
     end
 
       context "入力情報に問題が無い場合" do
