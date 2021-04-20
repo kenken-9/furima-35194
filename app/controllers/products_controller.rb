@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_product, only: [:edit, :show, :update, :destroy]
   before_action :set_path, only: [:edit, :update, :destroy]
+  # before_action :sold_out_product, only:[:index]
+  
 
   def new
     @product = Product.new
@@ -55,4 +57,12 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:image, :name, :text, :price, :category_id, :condition_id, :fee_id, :area_id, :ship_id).merge(user_id: current_user.id)
   end
+
+  # def sold_out_product
+  #   if product.buy.present?
+  #     redirect_to root_path
+  # end
+
+ 
+
 end
