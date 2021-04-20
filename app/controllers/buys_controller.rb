@@ -1,5 +1,5 @@
 class BuysController < ApplicationController
-  before_action :set_product , only:[:create]
+  before_action :set_product , only:[:create, :index]
 
   def index
     @buy_address = BuyAddress.new
