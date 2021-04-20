@@ -29,7 +29,6 @@ const pay = () => {
             document.getElementById("card-cvc").removeAttribute("name");
 
             document.getElementById("charge-form").submit();
-            console.log
         });
     });
   };
