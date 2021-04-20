@@ -2,7 +2,6 @@ class BuysController < ApplicationController
   before_action :set_product , only:[:create, :index]
   before_action :authenticate_user!, only:[:index]
   before_action :set_path, only:[:index]
-  before_action :sold_out_product, only:[:index]
 
   def index
     @buy_address = BuyAddress.new
@@ -39,18 +38,9 @@ class BuysController < ApplicationController
   end
 
   def set_path
-    if @product.user_id == current_user.id
+    if (@product.user_id && current_user.id) || @product.buy.present?
       redirect_to root_path
-    end
-
-    def sold_out_product
-      if @product.buy.present?
-        redirect_to root_path
-      end
-    end
-
- end
-
-
-
+     else
+     end
+  end
 end
