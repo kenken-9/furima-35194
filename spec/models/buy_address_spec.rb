@@ -76,6 +76,25 @@ RSpec.describe BuyAddress, type: :model do
           @buy_address.valid?
           expect(@buy_address.errors.full_messages).to include("Token can't be blank")
         end
+
+        it "user_idが空では送信できない" do
+          @buy_address.user_id = nil
+          @buy_address.valid?
+          expect(@buy_address.errors.full_messages).to include( )
+        end
+
+        it "product_idが空では送信できない" do
+          @buy_address.user_id = nil
+          @buy_address.valid?
+          expect(@buy_address.errors.full_messages).to include( )
+        end
+
+        it "電話番号は英数字混合では登録できない" do
+          @buy_address.phone_number = "11111aaaaaa" 
+          @buy_address.valid?
+          expect(@buy_address.errors.full_messages).to include( "Phone number Input only number")
+        end
+
       end
   end
 end
