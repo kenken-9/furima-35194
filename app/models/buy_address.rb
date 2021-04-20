@@ -9,6 +9,7 @@ class BuyAddress
       validates :block_number
       validates :phone_number, format: {with: /\A\d{11}\z/ , message: "Input only number"}
       validates :token
+      validates :user_id
     end
     validates :area_id, numericality: { other_than: 1, message: "Select" }
 
