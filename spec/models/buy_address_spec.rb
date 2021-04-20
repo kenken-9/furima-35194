@@ -15,6 +15,11 @@ RSpec.describe BuyAddress, type: :model do
         it "全ての情報が正しく入力されている" do
           expect(@buy_address).to be_valid
         end
+
+        it "建物名がなくても登録できる" do
+          @buy_address.building_name = ""
+          expect(@buy_address).to be_valid
+        end
       end
 
       context "入力情報に問題がある場合" do
