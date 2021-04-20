@@ -65,12 +65,6 @@ RSpec.describe BuyAddress, type: :model do
           expect(@buy_address.errors.full_messages).to include("Postal code code Input correctly")
         end
 
-        it "priceが空では送信できないこと " do
-          @buy_address.price = ""
-          @buy_address.valid?
-          expect(@buy_address.errors.full_messages).to include()
-        end
-
         it "tokenが空では送信できない" do
           @buy_address.token = ""
           @buy_address.valid?
