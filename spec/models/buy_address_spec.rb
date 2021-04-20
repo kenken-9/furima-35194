@@ -80,7 +80,7 @@ RSpec.describe BuyAddress, type: :model do
         it "product_idが空では送信できない" do
           @buy_address.user_id = nil
           @buy_address.valid?
-          expect(@buy_address.errors.full_messages).to include( )
+          expect(@buy_address.errors.full_messages).to include( "User can't be blank")
         end
 
         it "電話番号は英数字混合では登録できない" do
