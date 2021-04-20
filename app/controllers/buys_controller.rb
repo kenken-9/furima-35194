@@ -1,5 +1,7 @@
 class BuysController < ApplicationController
   before_action :set_product , only:[:create, :index]
+  before_action :authenticate_user!, only:[:index]
+  before_action :set_path, only:[:index]
 
   def index
     @buy_address = BuyAddress.new
@@ -34,6 +36,12 @@ class BuysController < ApplicationController
   def buy_params
     params.require(:buy_address).permit(:postal_code, :area_id, :municipality, :block_number, :building_name, :phone_number).merge(user_id: current_user.id, product_id: params[:product_id],token: params[:token])
   end
+
+  def set_path
+    if @product.user_id == current_user.id
+      redirect_to root_path
+    end
+ end
 
 
 
