@@ -15,10 +15,10 @@ class Product < ApplicationRecord
     validates :image
     validates :name
     validates :text
-    validates :price, format: { with: /\A[0-9]+\z/, message: "Half-width number" }, inclusion: { in: 300..9999999, message: "Out of setting range" }
+    validates :price, format: { with: /\A[0-9]+\z/, message: "を半角数字で入力してください" }, inclusion: { in: 300..9999999, message: "を設定範囲内で入力してください" }
   end
 
-  with_options numericality: { other_than: 1, message: "Select" } do
+  with_options numericality: { other_than: 1, message: "を選択してください" } do
     validates :category_id
     validates :condition_id
     validates :fee_id
