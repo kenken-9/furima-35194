@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_product, only: [:edit, :show, :update, :destroy]
   before_action :set_path, only: [:edit, :update, :destroy]
+  before_action :sold_out, only: [:edit, :update, :destroy]
 
   def new
     @product = Product.new
@@ -51,8 +52,15 @@ class ProductsController < ApplicationController
   end
 
   def set_path
-    if (@product.user_id == current_user.id) || @product.buy.present?
+    if (@product.user_id != current_user.id) 
       redirect_to root_path
     end
   end
+
+  def sold_out
+    if @product.buy.present?
+      redirect_to root_path
+    end
+  end
+
 end
